@@ -12,16 +12,9 @@ class LoginView extends Component {
 		await AuthLogin(email.value, password.value)
 		await history.push('/')
 	}
-	
-	handleSignUp = () => {
-		const { history } = this.props
-		history.push({
-			pathname: '/signup'
-		})
-	}
 
   	render(){
-		const { error } =this.props
+		const { error, history } =this.props
 		return (
 			<div>
 				<h1>Login</h1>
@@ -44,7 +37,7 @@ class LoginView extends Component {
 					</label>
 					<button type="submit">Login</button>
 				</form>
-				<button onClick={this.handleSignUp}>Sign Up</button>
+				<p onClick={() => history.push('/signup')}>Sign Up</p>
 				{error}
 			</div>
 		)

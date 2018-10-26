@@ -12,7 +12,7 @@ class SignUpView extends Component {
 	};
 
 	render() {
-		const { error } = this.props
+		const { error, history } = this.props
 		return (
 			<div>
 				<h1>Sign up</h1>
@@ -35,6 +35,7 @@ class SignUpView extends Component {
 					</label>
 					<button type="submit">Sign Up</button>
 				</form>
+				<p onClick={() => history.push('/login')}>Log In</p>
 				{error}
 			</div>
 		)
