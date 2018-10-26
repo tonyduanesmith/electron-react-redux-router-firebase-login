@@ -1,11 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-
+import { Router } from 'react-router';
 import AppRoutes from './AppRoutes'
+import { history } from './history'
 
 const BrowserWrapper = () => {
     return (
-      <Router>
+      <Router history={history}>
         <AppRoutes />
       </Router>
     )

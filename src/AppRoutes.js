@@ -9,12 +9,6 @@ import LoginView from './views/Login/LoginView';
 import SignUpView from './views/SignUp/SignUpView';
 
 class AppRoutes extends Component {
-  async componentDidMount() {
-    const {
-        AuthCheck,
-    } = this.props
-    await AuthCheck()
-  }
   render(){
     const { loading, authenticated } = this.props
 

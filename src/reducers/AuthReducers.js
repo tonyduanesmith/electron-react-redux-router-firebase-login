@@ -1,13 +1,15 @@
 import {
     AUTH_LOADING,
     AUTH_AUTHENTICATED,
-    AUTH_CURRENT_USER
+    AUTH_CURRENT_USER,
+    AUTH_ERROR
 } from '../actions/types'
 
 const initialState = {
-    loading: true,
+    loading: false,
     authenticated: false,
-    currentUser: null
+    currentUser: null,
+    error: ''
 }
 
 export default function(state = initialState, action){
@@ -26,6 +28,11 @@ export default function(state = initialState, action){
             return{
                 ...state,
                 currentUser: action.payload
+            }
+        case AUTH_ERROR:
+            return{
+                ...state,
+                error: action.payload
             }
         default:
             return state

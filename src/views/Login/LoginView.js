@@ -21,6 +21,7 @@ class LoginView extends Component {
 	}
 
   	render(){
+		const { error } =this.props
 		return (
 			<div>
 				<h1>Login</h1>
@@ -44,11 +45,19 @@ class LoginView extends Component {
 					<button type="submit">Login</button>
 				</form>
 				<button onClick={this.handleSignUp}>Sign Up</button>
+				{error}
 			</div>
 		)
   	}
 }
 
+const mapStateToProps = state => {
+	const { error } = state.auth
+	return {
+		error
+	}
+}
+
 export default withRouter(
-  	connect(null, { AuthLogin })(LoginView)
+  	connect(mapStateToProps, { AuthLogin })(LoginView)
 );
